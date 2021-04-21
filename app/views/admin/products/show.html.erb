@@ -1,3 +1,19 @@
+<h4>ヘッダー（仮）</h4>
+<%= link_to "商品一覧ページリンク",admin_products_path %>
+<br></br>
+
 商品詳細
-<h1>Admins::Products#show</h1>
-<p>Find me in app/views/admins/products/show.html.erb</p>
+<table class="table">
+  <%= link_to attachment_image_tag(@product, :image_id, :fill,60,60, fallback: "no_image.jpg") %>
+    <tbody>
+      <tr>
+        <td></td>
+        <td><%= link_to @product.name %></td>
+        <td><%= link_to @product.introduction %></td>
+        <td>ジャンルは工事中です許して</td>
+        <td><%= link_to @product.price %>税率・税込価格は未実装</td>
+        <td><%= link_to @product.is_active %></td>
+        <td><%= link_to "Edit", edit_admin_product_path(@product.id),class: "btn btn-sm btn-success" %></td>
+      </tr>
+    </tbody>
+</table>

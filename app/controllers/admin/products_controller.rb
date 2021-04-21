@@ -9,12 +9,23 @@ class Admin::ProductsController < ApplicationController
   end
 
   def create
-    @product = product.new(product_params)
+    @product = Product.new(product_params)
     @product.save
     redirect_to admin_product_path(@product)
+
+  # @product = Product.new(product_params)
+  #   if @product.save
+  #     flash[:notice] = "新商品を登録しました"
+  #     redirect_to admin_product_path(@product)
+  #   else
+  #     render :new
+  #   end
+
   end
 
+
   def show
+    @product = Product.find(params[:id])
   end
 
   def edit
@@ -25,7 +36,7 @@ class Admin::ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:image_id,:name,:introduction,:price,:is_active)
+    params.require(:product).permit(:image,:name,:introduction,:price,:is_active)
   end
 
 end
