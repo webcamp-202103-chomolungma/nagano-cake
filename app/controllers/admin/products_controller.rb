@@ -4,9 +4,13 @@ class Admin::ProductsController < ApplicationController
 
   def new
     @product = Product.new
+#    genres = Genre
   end
 
   def create
+    @product = product.new(product_params)
+    @product.save
+    redirect_to admin_product_path(@product)
   end
 
   def show
@@ -17,4 +21,12 @@ class Admin::ProductsController < ApplicationController
 
   def update
   end
+
+  private
+  def product_params
+    params.require(:product).permit(:image_id,:name,:introduction,:price,:is_active)
+  end
+
 end
+
+
