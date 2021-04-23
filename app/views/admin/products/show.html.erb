@@ -7,13 +7,18 @@
   <%= link_to attachment_image_tag(@product, :image_id, :fill,60,60, fallback: "no_image.jpg") %>
     <tbody>
       <tr>
-        <td></td>
+        <td>商品名</td>
         <td><%= link_to @product.name %></td>
+        <td>商品説明</td>
         <td><%= link_to @product.introduction %></td>
+        <td>ジャンル</td>
+
         <td>ジャンルは工事中です許して</td>
+
         <td><%= link_to @product.price %>税率・税込価格は未実装</td>
         <td><%= link_to @product.is_active %></td>
-        <td><%= link_to "Edit", edit_admin_product_path(@product.id),class: "btn btn-sm btn-success" %></td>
       </tr>
     </tbody>
 </table>
+<%= link_to "編集", edit_admin_product_path(@product.id),class: "btn btn-sm btn-success" %>
+<%= link_to "削除", admin_product_path(@product.id),method: :delete, data: { confirm: "削除してもよろしいですか？" }, class: "btn btn-sm btn-danger" %>

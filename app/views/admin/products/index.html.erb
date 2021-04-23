@@ -20,7 +20,7 @@
   <% @products.each do |product| %>
     <tr>
       <td><%=link_to product.id %></td>
-      <td><%=link_to product.name,product_path(product.id) %></td>
+      <td><%=link_to product.name,admin_product_path(product.id) %></td>
       <td><%=link_to product.price %></td>
       <td>ジャンル工事中</td>
       <td><%=link_to product.is_active %></td>

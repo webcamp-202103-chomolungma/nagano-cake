@@ -10,6 +10,10 @@ class Admin::ProductsController < ApplicationController
 
   def create
     # @product = Product.new(product_params)
+<<<<<<< HEAD
+=======
+    # # binding.pry
+>>>>>>> 025634ff09c9f7d284d3e6c60c3532f0efa2b57c
     # @product.save
     # redirect_to admin_product_path(@product)
 
@@ -26,12 +30,23 @@ class Admin::ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    # binding.pry
   end
 
   def edit
+    @product = Product.find(params[:id])
   end
 
   def update
+    @product = Product.find(params[:id])
+    @product.update(product_params)
+    redirect_to admin_product_path
+  end
+
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to admin_products_path
   end
 
   private

@@ -22,9 +22,16 @@
     </tr>
   </thead>
   <tbody>
-    <%# @genres.each do |genre| %>
-    <tr></tr>
-    <tr></tr>
-    <%# end %>
+    <% @genres.each do |genre| %>
+    <tr>
+      <td><%= genre.name %></td>
+      <td>
+        <%= link_to "編集する", edit_admin_genre_path(genre.id),class: "btn btn-sm btn-success" %>
+      </td>
+      <td>
+        <%= link_to "削除", admin_genre_path(genre.id),method: :delete, data: { confirm: "削除してもよろしいですか？" }, class: "btn btn-sm btn-danger" %>
+      </td>
+    </tr>
+    <% end %>
   </tbody>
 </table>
