@@ -20,4 +20,5 @@
       </tr>
     </tbody>
 </table>
-<%= link_to "Edit", edit_admin_product_path(@product.id),class: "btn btn-sm btn-success" %>
+<%= link_to "編集", edit_admin_product_path(@product.id),class: "btn btn-sm btn-success" %>
+<%= link_to "削除", admin_product_path(@product.id),method: :delete, data: { confirm: "削除してもよろしいですか？" }, class: "btn btn-sm btn-danger" %>
