@@ -16,7 +16,13 @@
         <td>ジャンルは工事中です許して</td>
 
         <td><%= link_to @product.price %>税率・税込価格は未実装</td>
-        <td><%= link_to @product.is_active %></td>
+        <td>
+          <% if @product.is_active == true %>
+            販売中
+          <% else %>
+            販売停止中
+          <% end %>
+        </td>
       </tr>
     </tbody>
 </table>
