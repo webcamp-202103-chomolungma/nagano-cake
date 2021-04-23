@@ -19,9 +19,12 @@
 
       <div class="form-group">
         ジャンルは工事中のためスルーで
+        <%= f.collection_select :name, Genre.all, :id, :name %>
+        <%#= f.collection_select %>
+        <%#= f.seletct :method,:model?? ,options_for("ケーキ","ドーナツ") %>
       </div>
-  　 <%#= form.label :genre %>
-  　 <%#= form.select :genre, ['ケーキ', 'シュークリーム', 'エクレア'], {include_blank: '---'} %>
+        <%#= form.label :genre %>
+      　<%#= form.select :genre, ['ケーキ', 'シュークリーム', 'エクレア'], {include_blank: '---'} %>
 
       <div class="form-group">
         <label for="price">税抜価格</label>

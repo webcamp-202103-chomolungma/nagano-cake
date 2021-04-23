@@ -22,6 +22,7 @@ class Admin::ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    # @genre = Genre.find(@product.genre_id)
     # binding.pry
   end
 
@@ -45,6 +46,10 @@ class Admin::ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:image,:name,:introduction,:price,:is_active)
   end
+
+  # def product_params
+  #   params.require(:genre).permit(:name)
+  # end
 
 end
 
