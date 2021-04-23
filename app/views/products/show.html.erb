@@ -1,0 +1,13 @@
+<h2>商品詳細画面</h2>
+
+
+<table class = "table">
+  <%= attachment_image_tag @product, :image_id, size: '50x50', format: "jpeg", fallback: "no_image.jpg", size: '300x300', class: "rounded"%>
+     <tbody>
+       <tr>
+         <td><%= @product.name %></td>
+         <td><%= @product.introduction %></td>
+         <th>¥<%= @product.price %> (税込)</th>
+       </tr>
+     </tbody>
+</table>
