@@ -73,4 +73,6 @@ gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'pry-rails'
 
+gem 'pry-byebug', group: :development
+
 # 追加、以上

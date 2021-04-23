@@ -9,17 +9,17 @@ class Admin::ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params)
-    @product.save
-    redirect_to admin_product_path(@product)
+    # @product = Product.new(product_params)
+    # @product.save
+    # redirect_to admin_product_path(@product)
 
-  # @product = Product.new(product_params)
-  #   if @product.save
-  #     flash[:notice] = "新商品を登録しました"
-  #     redirect_to admin_product_path(@product)
-  #   else
-  #     render :new
-  #   end
+  @product = Product.new(product_params)
+    if @product.save
+      flash[:notice] = "新商品を登録しました"
+      redirect_to admin_product_path(@product)
+    else
+      render :new
+    end
 
   end
 
