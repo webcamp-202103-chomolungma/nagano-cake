@@ -38,23 +38,7 @@
           </div>
         </div>
       </div>
-  <% elsif admin_signed_in? %>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <%= link_to "LOGO",root_path,class:"navbar-brand" %>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="navbar-collapse collapse show" id="navbarNavDropdown" style="">
-        <ul class="navbar-nav ml-auto">
-          <%= link_to"商品一覧",products_path,class:"fas fa-home nav-link text-light" %>
-          <%= link_to"会員一覧",admin_customers_path,class:"fas fa-home nav-link text-light" %>
-          <%= link_to"注文履歴一覧",orders_path,class:"fas fa-home nav-link text-light" %>
-          <%= link_to"ジャンル一覧",admin_genres_path,class:"fas fa-home nav-link text-light" %>
-          <%= link_to"ログアウト",destroy_admin_session_path, method: :delete ,class:"fas fa-sign-out-alt nav-link text-light" %>
-        </ul>
-      </div>
-    </nav>
+
   <% else %>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
@@ -81,7 +65,7 @@
         </div>
       </div>
   <% end %>
-
+  
   <%= yield %>
     </body>
   </html>
