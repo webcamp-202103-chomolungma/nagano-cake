@@ -44,12 +44,12 @@ class Admin::ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:image,:name,:introduction,:price,:is_active)
+    params.require(:product).permit(:image,:name,:introduction,:price,:is_active,:genre_id)
   end
 
-  # def product_params
-  #   params.require(:genre).permit(:name)
-  # end
+   #def product_params
+    #params.require(:genre).permit(:name)
+   #end
 
 end
 
