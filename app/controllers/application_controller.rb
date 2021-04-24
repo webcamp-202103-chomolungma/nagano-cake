@@ -6,10 +6,10 @@
     end
 
     def after_sign_in_path_for(resource)
-      customer_path(current_customer) # ログイン後に遷移するpathを設定
+      customers_my_page_path(current_customer) # ログイン後に遷移するpathを設定
     end
-    
-    
+
+
     def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [
       :email,
