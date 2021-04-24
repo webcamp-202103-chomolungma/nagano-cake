@@ -29,8 +29,7 @@ Rails.application.routes.draw do
   # devise_for :admin, controllers: {
   #   sessions: 'admin/sessions'
   # }
-
-
+  
   get 'customers/my_page'=>'customers#show'
   get 'customers/unsubscribe'=>'customers#unsubscribe'
   patch 'customers/withdraw'=>'customers#withdraw'
@@ -59,7 +58,7 @@ Rails.application.routes.draw do
 
   resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
   resources :addresses, only: [:index, :edit, :create, :update, :destroy]
-  resources :registrations, only:[:new, :create]
-  resources :sessions, only:[:new, :create, :destroy]
+  # resources :registrations, only:[:new, :create]
+  # resources :sessions, only:[:new, :create, :destroy]
 
 end
