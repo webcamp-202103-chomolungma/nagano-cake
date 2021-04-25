@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     root 'homes#top'
   end
   get 'home/about'=>'homes#about'
-  
+
   # devise_for :customers
   # root to: 'homes#top'
 
@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   # }
 
   get 'customers/my_page'=>'customers#show'
+  get 'customers/edit'=>'customers#edit'
   get 'customers/unsubscribe'=>'customers#unsubscribe'
   patch 'customers/withdraw'=>'customers#withdraw'
 
