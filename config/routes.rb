@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
 
-
   root 'homes#top'
   namespace :admin do
     root 'homes#top'
   end
   get 'home/about'=>'homes#about'
-
+  
   # devise_for :customers
   # root to: 'homes#top'
 
@@ -41,9 +40,9 @@ Rails.application.routes.draw do
   end
 
   resources :orders, only: [:new, :index, :show, :confirm, :thanks, :create]
-    namespace :admin do
-      resources :orders, only: [:show, :update]
-  end
+   namespace :admin do
+    resources :orders, only: [:show, :update, :index]
+   end
 
   resources :products, only:[:index, :show,]
 
