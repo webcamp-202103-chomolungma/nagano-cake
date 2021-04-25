@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2021_04_25_080855) do
     t.boolean "is_deleted", default: false
     t.datetime "created_at"
     t.time "updated_at"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
