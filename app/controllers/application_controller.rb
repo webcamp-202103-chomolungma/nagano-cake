@@ -1,6 +1,20 @@
   class ApplicationController < ActionController::Base
     before_action :configure_permitted_parameters, if: :devise_controller?
 
+    def after_sign_in_path_for(resource)
+		  if resource_name == :customer
+			  admin_root_path
+		  elsif resource_name == :admin
+			customers_my_page_path
+			end
+		end
+
+    # if resource.is_a?(Admin)
+    #   admin_root_path
+    # elsif resource.is_a?(Customer)
+    #   customers_my_page_path # ログイン後に遷移するpathを設定
+    # end
+
     # def configure_permitted_parameters
     # devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
     # end

@@ -1,19 +1,20 @@
 Rails.application.routes.draw do
 
+
   root 'homes#top'
-  # namespace :admin do
-  #   root 'homes#top'
-  # end
+  namespace :admin do
+    root 'homes#top'
+  end
   get 'home/about'=>'homes#about'
 
   # devise_for :customers
   # root to: 'homes#top'
 
-  # devise_for :admin, path: 'admin', controllers: {
-  #   sessions: 'admin/sessions',
-  #   registrations: 'admin/registrations',
-  #   password: 'admin/passwords'
-  # }
+  devise_for :admins, path: 'admin', controllers: {
+    sessions: 'admin/sessions',
+    registrations: 'admin/registrations',
+    password: 'admins/passwords'
+  }
 
   devise_for :customers, controllers: {
     :sessions => 'customers/sessions',
@@ -35,27 +36,27 @@ Rails.application.routes.draw do
   get 'customers/unsubscribe'=>'customers#unsubscribe'
   patch 'customers/withdraw'=>'customers#withdraw'
 
-  # namespace :admin do
-  #   resources :customers, only: [:index,:show, :edit, :update]
-  # end
+  namespace :admin do
+    resources :customers, only: [:index,:show, :edit, :update]
+  end
 
   resources :orders, only: [:new, :index, :show, :confirm, :thanks, :create]
-  # namespace :admin do
-  #   resources :orders, only: [:show, :update]
-  # end
+  namespace :admin do
+    resources :orders, only: [:show, :update]
+  end
 
   resources :products, only:[:index, :show,]
-  # namespace :admin do
-  #   resources :products, only:[:index, :new, :create, :show, :edit, :update]
-  # end
+  namespace :admin do
+    resources :products, only:[:index, :new, :create, :show, :edit, :update]
+  end
 
-  # namespace :admin do
-  #   resources :genres, only:[:index, :create, :edit, :update]
-  # end
+  namespace :admin do
+    resources :genres, only:[:index, :create, :edit, :update]
+  end
 
-  # namespace :admin do
-  #   resources :order_details, only:[:update]
-  # end
+  namespace :admin do
+    resources :order_details, only:[:update]
+  end
 
   resources :cart_items, only: [:index, :update, :destroy, :destroy_all, :create]
   resources :addresses, only: [:index, :edit, :create, :update, :destroy]
