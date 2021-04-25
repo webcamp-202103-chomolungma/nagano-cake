@@ -3,11 +3,11 @@
 
     def after_sign_in_path_for(resource)
 		  if resource_name == :customer
-			  admin_root_path
+			  customers_my_page_path
 		  elsif resource_name == :admin
-			customers_my_page_path
-			end
-		end
+		    admin_root_path
+		  end
+    end
 
     # if resource.is_a?(Admin)
     #   admin_root_path

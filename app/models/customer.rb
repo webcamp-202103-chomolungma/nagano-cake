@@ -7,6 +7,8 @@ class Customer < ApplicationRecord
             :address, :phone_number, presence: true
 
   def active_for_authentication?
-    super && (is_deleted == true)
+  # 最初はis_deletedで退会。
+  # !でdefaultをtrueに逆にできる
+    super && !self.is_deleted
   end
 end

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   devise_for :admins, path: 'admin', controllers: {
     sessions: 'admin/sessions',
     registrations: 'admin/registrations',
-    password: 'admins/passwords'
+    password: 'admin/passwords'
   }
 
   devise_for :customers, controllers: {
