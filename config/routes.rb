@@ -14,15 +14,16 @@ Rails.application.routes.draw do
     registrations: 'admin/registrations',
     password: 'admin/passwords'
   }
+  devise_for :customers, controllers: {
+    :sessions => 'customers/sessions',
+    :registrations => 'customers/registrations'
+  }
 
 
 
  resources :customers, only: [:show, :edit, :update]
 
-  devise_for :customers, controllers: {
-    :sessions => 'customers/sessions',
-    :registrations => 'customers/registrations'
-  }
+  
 
   resources :customers, only: [:show, :edit, :update]
 

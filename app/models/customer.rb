@@ -6,6 +6,7 @@ class Customer < ApplicationRecord
           
   validates :first_name, :last_name, :first_name_kana, :last_name_kana, :postal_code,
             :address, :phone_number, presence: true
+  has_many :addresses
 
   def active_for_authentication?
   # 最初はis_deletedで退会。
