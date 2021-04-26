@@ -1,34 +1,37 @@
-<h2>商品一覧</h2>
 
-<table class="table table-inverse">
-  <thead>
-    <tr>
-      <th>写真</th>
-      <th>商品名</th>
-      <th>値段</th>
-    </tr>
-  </thead>
+  <h2>商品一覧</h2>
 
-  <% @products.each do |product| %>
-    <tr>
-      <td>
-        <%= attachment_image_tag product, :image, :fill, 60, 60, fallback: "no_image.jpg",size:"40x40" %>
-      </td>
+  <table class="table table-inverse">
+    <thead>
+      <tr>
+        <th>写真</th>
+        <th>商品名</th>
+        <th>値段</th>
+      </tr>
+    </thead>
 
-      <td>
-        <%= link_to product.name,product_path(product.id) %>
-      </td>
+    <% @products.each do |product| %>
+      <tr>
+        <td>
+          <%= attachment_image_tag product, :image, :fill, 60, 60, fallback: "no_image.jpg",size:"40x40" %>
+        </td>
 
-      <td>
-        ￥<%= product.price %>
-      </td>
+        <td>
+          <%= link_to product.name,product_path(product.id) %>
+        </td>
 
-
-      <td>
-        <%= product.is_active %>
-      </td>
-    </tr>
-  <% end %>
+        <td>
+          ￥<%= product.price %>
+        </td>
 
 
-</table>
+        <td>
+          <%= product.is_active %>
+        </td>
+      </tr>
+    <% end %>
+
+    <%= paginate @products %>
+
+  </table>
+

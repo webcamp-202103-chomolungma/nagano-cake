@@ -1,6 +1,9 @@
 class Admin::ProductsController < ApplicationController
+  PER = 3
+  
   def index
-    @products = Product.all
+    # 雷の実装　イチロー
+    @products = Product.page(params[:page]).per(3)
   end
 
   def new

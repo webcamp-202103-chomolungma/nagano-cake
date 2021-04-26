@@ -4,8 +4,9 @@
 <div class = row >s
 
   <h3>登録情報</h3>
-
+  
   <%= link_to "編集する", edit_customer_path(@customer.id), class: "btn btn-success" %>
+  
 </div>
 
 <table class="table table-hover table-inverse">
@@ -20,7 +21,6 @@
 
 
 <h5>配送先</h5> <%= link_to "一覧をみる", products_path(@customer.id), class: "btn btn-primary" %>
-
 
 <h5>注文履歴</h5> <%= link_to "一覧をみる", orders_path(@customer.id), class: "btn btn-primary" %>
 
