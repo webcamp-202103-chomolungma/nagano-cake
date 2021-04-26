@@ -1,21 +1,21 @@
 Rails.application.routes.draw do
-  
+
   devise_for :admins, path: 'admin', controllers: {
     sessions: 'admin/sessions',
     registrations: 'admin/registrations',
     password: 'admin/passwords'
   }
-  
+
     devise_for :customers, controllers: {
     :sessions => 'customers/sessions',
     :registrations => 'customers/registrations'
   }
-  
+
   root 'homes#top'
   namespace :admin do
     root 'homes#top'
   end
-  
+
   get 'home/about'=>'homes#about'
   get 'customers/my_page'=>'customers#show'
   get 'customers/edit/:id'=>'customers#edit'
@@ -25,8 +25,12 @@ Rails.application.routes.draw do
   # devise_for :customers
   # root to: 'homes#top'
 
+<<<<<<< HEAD
+=======
   
+>>>>>>> fd8894a6dc5209b8613c637a1799c75dfac7f905
  resources :customers, only: [:show, :edit, :update]
+
 
   # resources :customers, only: [:show, :edit, :update]
 
@@ -74,7 +78,7 @@ Rails.application.routes.draw do
   resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   # resources :registrations, only:[:new, :create]
   # resources :sessions, only:[:new, :create, :destroy]
-  
+
 ###以下カート機能
   # resource :carts, only: [:show]
   # post '/add_item' => 'carts#add_item'
