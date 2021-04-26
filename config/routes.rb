@@ -24,10 +24,12 @@ Rails.application.routes.draw do
 
   # devise_for :customers
   # root to: 'homes#top'
+
   
  resources :customers, only: [:show, :edit, :update]
 
   # resources :customers, only: [:show, :edit, :update]
+
 
   # devise_for :admin, controllers: {
   # sessions: "admin/sessions"
