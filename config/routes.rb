@@ -15,10 +15,16 @@ Rails.application.routes.draw do
     password: 'admin/passwords'
   }
 
+
+
+ resources :customers, only: [:show, :edit, :update]
+
   devise_for :customers, controllers: {
     :sessions => 'customers/sessions',
     :registrations => 'customers/registrations'
   }
+
+  resources :customers, only: [:show, :edit, :update]
 
   # devise_for :admin, controllers: {
   # sessions: "admin/sessions"
@@ -32,7 +38,7 @@ Rails.application.routes.draw do
   # }
 
   get 'customers/my_page'=>'customers#show'
-  get 'customers/edit'=>'customers#edit'
+  get 'customers/edit/:id'=>'customers#edit'
   get 'customers/unsubscribe'=>'customers#unsubscribe'
   patch 'customers/withdraw'=>'customers#withdraw'
 
