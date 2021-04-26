@@ -1,30 +1,33 @@
 Rails.application.routes.draw do
-
-  root 'homes#top'
-  namespace :admin do
-    root 'homes#top'
-  end
-  get 'home/about'=>'homes#about'
-
-  # devise_for :customers
-  # root to: 'homes#top'
-
+  
   devise_for :admins, path: 'admin', controllers: {
     sessions: 'admin/sessions',
     registrations: 'admin/registrations',
     password: 'admin/passwords'
   }
-
-
-
- resources :customers, only: [:show, :edit, :update]
-
-  devise_for :customers, controllers: {
+  
+    devise_for :customers, controllers: {
     :sessions => 'customers/sessions',
     :registrations => 'customers/registrations'
   }
+  
+  root 'homes#top'
+  namespace :admin do
+    root 'homes#top'
+  end
+  
+  get 'home/about'=>'homes#about'
+  get 'customers/my_page'=>'customers#show'
+  get 'customers/edit/:id'=>'customers#edit'
+  get 'customers/unsubscribe'=>'customers#unsubscribe'
+  patch 'customers/withdraw'=>'customers#withdraw'
 
-  resources :customers, only: [:show, :edit, :update]
+  # devise_for :customers
+  # root to: 'homes#top'
+  
+ resources :customers, only: [:show, :edit, :update]
+
+  # resources :customers, only: [:show, :edit, :update]
 
   # devise_for :admin, controllers: {
   # sessions: "admin/sessions"
@@ -36,11 +39,11 @@ Rails.application.routes.draw do
   # devise_for :admin, controllers: {
   #   sessions: 'admin/sessions'
   # }
-
-  get 'customers/my_page'=>'customers#show'
-  get 'customers/edit/:id'=>'customers#edit'
-  get 'customers/unsubscribe'=>'customers#unsubscribe'
-  patch 'customers/withdraw'=>'customers#withdraw'
+  # get 'customers/unsubscribe'=>'customers#unsubscribe'
+  # get 'customers/my_page'=>'customers#show'
+  # get 'customers/edit/:id'=>'customers#edit'
+  # patch 'customers/unsubscribe'=>'customers#unsubscribe'
+  # patch 'customers/withdraw'=>'customers#withdraw'
 
   namespace :admin do
     resources :customers, only: [:index,:show, :edit, :update]
