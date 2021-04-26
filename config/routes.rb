@@ -65,10 +65,10 @@ Rails.application.routes.draw do
   # resources :sessions, only:[:new, :create, :destroy]
   
 ###以下カート機能
-  resource :carts, only: [:show]
-  post '/add_item' => 'carts#add_item'
-  post '/update_item' => 'carts#update_item'
-  delete '/delete_item' => 'carts#delete_item'
+  # resource :carts, only: [:show]
+  # post '/add_item' => 'carts#add_item'
+  # post '/update_item' => 'carts#update_item'
+  # delete '/delete_item' => 'carts#delete_item'
 ###以上カート
 
 end
