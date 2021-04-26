@@ -14,4 +14,9 @@ class Customer < ApplicationRecord
     super && !self.is_deleted
 
   end
+  
+  # # is_deletedがfalseならtrueを返すようにしている
+  # def active_for_authentication?
+  #   super && (is_deleted == false)
+  # end
 end
