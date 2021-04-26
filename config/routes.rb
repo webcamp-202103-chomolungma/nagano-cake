@@ -24,7 +24,7 @@ Rails.application.routes.draw do
     :registrations => 'customers/registrations'
   }
 
-  resources :customers, only: [:show, :edit, :update]
+  # resources :customers, only: [:show, :edit, :update]
 
   # devise_for :admin, controllers: {
   # sessions: "admin/sessions"
