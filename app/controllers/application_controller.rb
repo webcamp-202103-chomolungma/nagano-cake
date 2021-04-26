@@ -25,7 +25,15 @@
 		    admin_root_path
 		  end
     end
-    
+
+    def after_sign_in_path_for(resource)
+      if resource_name == :customer
+        root_path
+      elsif resource_name == :admin
+        admin_root_path
+      end
+    end
+
     # def current_cart
     #   Cart.find(session[:cart_id])
     # rescue ActiveRecord::RecordNotFound
@@ -33,7 +41,7 @@
     #   session[:cart_id] = cart.id
     #   cart
     # end
-    
+
     protected
       def configure_permitted_parameters
         devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :first_name_kana, :last_name_kana, :email, :phone_number, :postal_code, :address])

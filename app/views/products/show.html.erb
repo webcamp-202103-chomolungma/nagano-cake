@@ -2,7 +2,7 @@
 
 
 <table class = "table">
-  <%= attachment_image_tag @product, :image_id, size: '50x50', format: "jpeg", fallback: "no_image.jpg", size: '300x300', class: "rounded"%>
+  <%= link_to attachment_image_tag @product, :image, :fill, 60, 60, fallback: "no_image.jpg",size:"300x300" %>
      <tbody>
        <tr>
          <td><%= @product.name %></td>
