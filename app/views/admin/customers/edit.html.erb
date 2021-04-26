@@ -1,6 +1,6 @@
 <h2><%= @customer.first_name %> <%= @customer.last_name %>さんの会員情報編集</h2>
 
-<%= form_with model:@customer, url:admin_customer_path(@customer),local:true do |f| %>
+<%= form_with model:@customer, url:customers_edit_path(@customer),local:true do |f| %>
   <table>
     <tr><th>会員ID</th><td><%= @customer.id %></td></tr>
     <tr><th>氏名</th><td><%= f.text_field :first_name, autofocus: true %><%= f.text_field :last_name %></td></tr>
