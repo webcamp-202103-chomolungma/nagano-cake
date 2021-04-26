@@ -5,22 +5,10 @@ class Admin::CustomersController < ApplicationController
   #   @customer = Customer.find(params[:id])
   #   @customer = Customer.all
   # end
+   PER = 10
   def index
-    # # byebug
-    # @customers = Customer.find(params[:id])
-    @customers = Customer.all.order(:id) ## idの降順
-
-    # is_deletedカラムにフラグを立てる(defaultはfalse)
-    # @customer.update(is_deleted: true)
-    # #ログアウトさせる
-    # reset_session
-    # flash[:notice] = "ありがとうございました。またのご利用を心よりお待ちしております。"
-    # redirect_to root_path
-    # @customers = Customer.all
-    # @customer = Customer.find(params:id)
-    # @customer.update(is_deleted: true)
-    # reset_session
-    # redirect_to root_path
+    @customers = Customer.page(params[:page]).per(10)
+    # @customers = Customer.all.order(:id) ## idの降順
   end
 
   def show

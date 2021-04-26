@@ -1,13 +1,10 @@
 class ProductsController < ApplicationController
-#   PER = 10
+  PER = 10
   def index
 # 雷の実装　イチロー
-#     @products = Product.page(params[:page]).per(10)
-
-    @products = Product.all
-
+  @products = Product.page(params[:page]).per(10)
   end
-  
+
   def show
     @product = Product.find(params[:id])
   end
